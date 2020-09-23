@@ -8,7 +8,14 @@ def index():
         subreddit = request.form.get("subreddit", "")
         filtercontent = request.form.get("filtercontent", "")
         filteramount = request.form.get("filteramount", "")
-        return render_template('index.html', subreddit=subreddit, filtercontent=filtercontent, filteramount=filteramount)
+
+        data = {
+            "subreddit": request.form.get("subreddit", ""),
+            "filtercontent": request.form.get("filtercontent", ""),
+            "filteramount": request.form.get("filteramount", ""),
+        }
+
+        return render_template('index.html', data=data)
     return render_template('index.html')
 
 if __name__ == "__main__":

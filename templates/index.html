@@ -6,25 +6,50 @@
         <title>Searchit</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/index.css">
     </head>
     <body>
-        <h1>Welcome to searchit.</h1>
-        <form action="/" method="post">
-            <input name="subreddit" placeholder="subreddit" type="text">
-            <select name="filtercontent">
-                <option value="hot">hot</option>
-                <option value="top">top</option>
-                <option value="controversial">controversial</option>
-            </select>
-            <select name="filteramount">
-                <option value="top10">top 10</option>
-                <option value="top25">top 25</option>
-                <option value="top50">top 50</option>
-            </select>
-            <input type="submit" value="Search">
-        </form>
-        subreddit chosen: {{ subreddit }}
-        filter content chosen: {{ filtercontent }}
-        filter amount chosen: {{ filteramount }}
+        <section class="container-fluid">
+            <section class="row justify-content-center">
+                <section class="col-12 col-md-6">
+                    <form action="/" method="post" class="form-container">
+                        <div class="form-group">
+                            <h3>Welcome to searchit.</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" placeholder="subreddit" name="subreddit" type="text" id="sub">  
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" name="filtercontent">
+                                <option value="hot">hot</option>
+                                <option value="top">top</option>
+                                <option value="controversial">controversial</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" name="filteramount">
+                                <option value="top10">top 10</option>
+                                <option value="top25">top 25</option>
+                                <option value="top50">top 50</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-primary btn-block" type="submit" value="Search">
+                        </div>
+                    </form>
+                    {% if data %}
+                    <ul class="list-group">
+                        <li class="list-group-item">{{ data.subreddit }}</li>
+                        <li class="list-group-item">{{ data.filtercontent }}</li>
+                        <li class="list-group-item">{{ data.filteramount }}</li>
+                      </ul>
+                    {% endif %}
+                </section>
+            </section>
+        </section>
     </body>
 </html>
