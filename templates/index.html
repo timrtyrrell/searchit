@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Searchit</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Welcome to searchit.</h1>
+        <form action="/" method="post">
+            <input name="subreddit" placeholder="subreddit" type="text">
+            <select name="filtercontent">
+                <option value="hot">hot</option>
+                <option value="top">top</option>
+                <option value="controversial">controversial</option>
+            </select>
+            <select name="filteramount">
+                <option value="top10">top 10</option>
+                <option value="top25">top 25</option>
+                <option value="top50">top 50</option>
+            </select>
+            <input type="submit" value="Search">
+        </form>
+        subreddit chosen: {{ subreddit }}
+        filter content chosen: {{ filtercontent }}
+        filter amount chosen: {{ filteramount }}
+    </body>
+</html>
